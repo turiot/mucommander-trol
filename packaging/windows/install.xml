@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<installation version="5.0">
+
+  <info>
+    <appname>Mucommander</appname>
+    <appsubpath>Mucommander-${project.version}</appsubpath>
+    <appversion>${project.version}</appversion>
+    <url>https://mucommander.org/</url>
+    <uninstaller write="yes"/>
+    <javaversion>1.6</javaversion>
+    <run-privileged condition="izpack.windowsinstall.vista|izpack.windowsinstall.7"/>
+  </info>
+
+  <variables>
+    <variable name="InstallerFrame.logfilePath" value="Default"/>
+    <variable name="ShowCreateDirectoryMessage" value="false"/>
+    <variable name="DesktopShortcutCheckboxEnabled" value="true"/>
+  </variables>
+
+  <guiprefs width="640" height="480" resizable="yes"/>
+
+  <locale>
+    <langpack iso3="eng"/>
+  </locale>
+
+  <resources>
+    <res id="shortcutSpec.xml" src="shortcutSpec.xml"/>
+    <res id="packsLang.xml_eng" src="eng.xml"/>
+  </resources>
+
+  <panels>
+    <panel classname="HelloPanel"/>
+    <panel classname="TargetPanel"/>
+    <panel classname="ShortcutPanel"/>
+    <panel classname="InstallPanel"/>
+    <panel classname="FinishPanel"/>
+  </panels>
+
+  <packs>
+    <pack name="MuCommander" required="yes">
+      <description>MuCommander install files.</description>
+      <file src="${project.build.directory}/mucommander.jar" targetdir="$INSTALL_PATH"/>
+      <file src="mucommander.bat" targetdir="$INSTALL_PATH"/>
+      <file src="mucommander.ico" targetdir="$INSTALL_PATH"/>
+    </pack>
+  </packs>
+
+  <native type="izpack" name="ShellLink.dll"/>
+  <native type="izpack" name="ShellLink_x64.dll"/>
+  
+</installation>

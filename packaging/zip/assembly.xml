@@ -1,0 +1,31 @@
+<assembly
+  xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+  <id>dist-unix</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+      <includes>
+        <!-- à voir + version dans sh; retirer proguard; deps+git; mulite -->
+        <include>${artifactId}.jar</include>
+      </includes>
+			<outputDirectory>/</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>${basedir}/packaging/bin</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+	<dependencySets>
+		<dependencySet>
+			<scope>runtime</scope>
+			<unpack>false</unpack>
+			<outputDirectory>/lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+</assembly>

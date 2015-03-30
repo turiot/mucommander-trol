@@ -1,0 +1,25 @@
+<shortcuts> 
+   <programGroup defaultName="MuCommander" location="applications"/> 
+   <shortcut name="MuCommander ${project.version}" 
+             target="$INSTALL_PATH/mucommander.bat" 
+             description="MuCommander" 
+             workingDirectory="$INSTALL_PATH"
+             iconFile="$INSTALL_PATH/mucommander.ico" 
+             initialState="normal" 
+             programGroup="yes"
+             desktop="yes" 
+             applications="no" 
+             startMenu="no" 
+             startup="no">
+    </shortcut>
+    <shortcut name="Uninstall MuCommander ${project.version}" 
+             target="$INSTALL_PATH/uninstaller/uninstaller.jar" 
+             description="Uninstall MuCommander" 
+             initialState="normal" 
+             programGroup="yes"
+             desktop="no" 
+             applications="no" 
+             startMenu="no" 
+             startup="no">
+    </shortcut>
+</shortcuts>
